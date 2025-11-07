@@ -1,0 +1,67 @@
+# Phân tích độ phức tạp MergeSort và QuickSort theo đệ quy
+
+## 1. MergeSort
+
+### Công thức đệ quy
+MergeSort hoạt động bằng cách:
+1. Chia mảng thành hai nửa (n/2).
+2. Sắp xếp từng nửa bằng MergeSort.
+3. Trộn hai nửa đã sắp xếp (merge) mất O(n) thời gian.
+
+Công thức đệ quy:
+
+    T(n) = 2T(n/2) + n,    T(1) = 0
+
+### Giải công thức đệ quy
+Áp dụng phương pháp thay thế:
+
+    T(n) = 2T(n/2) + n
+          = 2(2T(n/4) + n/2) + n
+          = 4T(n/4) + 2n
+          = 8T(n/8) + 3n
+          ...
+          = 2^k T(n/2^k) + k*n
+
+Khi n/2^k = 1 ⇒ k = log2(n).  
+Thay vào:
+
+    T(n) = 2^(log2(n)) * T(1) + n*log2(n)
+         = n*0 + n*log2(n)
+         = n*log2(n)
+
+ Vậy MergeSort có độ phức tạp:
+
+    T(n) = O(n log n)
+
+---
+
+## 2. QuickSort
+
+### Công thức đệ quy (pivot chia đều)
+Nếu pivot chia mảng đều:
+
+    T(n) = 2T(n/2) + n,   T(1) = 0
+
+Giải như MergeSort:
+
+    T(n) = n*log2(n) = O(n log n)
+
+### Trường hợp xấu nhất (pivot tệ nhất)
+Nếu pivot luôn là phần lớn nhất hoặc nhỏ nhất:
+
+    T(n) = T(n-1) + n,    T(1) = 0
+
+Giải công thức:
+
+    T(n) = T(n-1) + n
+          = T(n-2) + (n-1) + n
+          ...
+          = T(1) + 2 + 3 + ... + n
+          = n(n+1)/2 - 1 ≈ O(n^2)
+
+ Vậy QuickSort:
+- Trường hợp tốt/trung bình: O(n log n)  
+- Trường hợp xấu: O(n^2)
+
+
+|            | T(n) = T(n-1) + n (xấu)        | O(n^2)          |
