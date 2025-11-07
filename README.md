@@ -1,4 +1,4 @@
-# 🧪 Giai Thuật Sắp Xếp
+#  Giai Thuật Sắp Xếp
 
 Dự án này triển khai và so sánh nhiều **thuật toán sắp xếp** bằng ngôn ngữ C.  
 Mục tiêu là giúp người dùng:
@@ -8,7 +8,7 @@ Mục tiêu là giúp người dùng:
 
 ---
 
-## 📁 Cấu trúc thư mục
+##  Cấu trúc thư mục
 
 ```bash
 giai_thuat_sap_xep/
